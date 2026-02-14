@@ -6,6 +6,19 @@ const heartsContainer = document.getElementById('heartsContainer');
 let isPlaying = false;
 const hearts = [];
 
+// песни
+const playlist = [
+  'Kozy_Korpesh_-_Bayan_ Sulu.mp3',
+  'Gashyqpyn_sagan.mp3',
+  'Aruzhan_is_on_5_floor.mp3',
+  'ja-tak-bojus.mp3'
+];
+
+let currentTrack = 0;
+
+
+audio.src = playlist[currentTrack];
+
 function initHearts() {
   const heartCount = 25;
   
@@ -29,6 +42,8 @@ function initHearts() {
     });
   }
 }
+
+
 
 // Сердечки Аружан
 document.addEventListener('mousemove', function(e) {
@@ -60,6 +75,8 @@ document.addEventListener('mousemove', function(e) {
     }
   });
 });
+
+
 
 // игла
 needle.addEventListener('click', function() {
@@ -131,9 +148,16 @@ window.addEventListener('load', function() {
   initHearts();
 });
 
-// сброс
+
+// пр сонг
 audio.addEventListener('ended', function() {
-  vinyl.classList.remove('spin');
-  needle.classList.remove('playing');
-  isPlaying = false;
+  currentTrack = (currentTrack + 1) % playlist.length; // Зацикливание
+  audio.src = playlist[currentTrack];
+  
+  if (isPlaying) {
+    audio.play();
+  } else {
+    vinyl.classList.remove('spin');
+    needle.classList.remove('playing');
+  }
 });

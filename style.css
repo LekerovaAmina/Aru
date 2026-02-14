@@ -197,7 +197,7 @@ body {
 }
 
 .message {
-  font-size: 48px;
+  font-size: 16px;
   color: #2c1810;
   margin-bottom: 40px;
   line-height: 1.4;
@@ -237,7 +237,7 @@ body {
   }
   
   .message {
-    font-size: 36px;
+    font-size: 16px;
   }
   
   .dedication {
