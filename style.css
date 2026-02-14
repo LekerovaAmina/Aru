@@ -291,7 +291,7 @@ body {
 
 .center-image {
   position: fixed;
-  top: 50%;
+  top: 49%;
   left: 55%;
   transform: translate(-50%, -50%);
   z-index: 15; 
@@ -300,6 +300,6 @@ body {
 
 .center-image img {
   max-width: 800px;  
-  max-height: 800px; 
+  max-height: 700px; 
   display: block;
 }
