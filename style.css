@@ -303,3 +303,22 @@ body {
   max-height: 700px; 
   display: block;
 }
+
+.song-button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.song-button:hover {
+  background: rgba(199, 94, 94, 0.1);
+  transform: scale(1.02);
+}
+
+.song-button.active {
+  background: rgba(199, 94, 94, 0.2);
+  border-left: 3px solid #8b1e2d;
+  padding-left: 15px;
+}

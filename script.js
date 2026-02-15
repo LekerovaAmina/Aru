@@ -16,6 +16,35 @@ const playlist = [
 
 let currentTrack = 0;
 
+// Кнопки песен
+const songButtons = document.querySelectorAll('.song-button');
+
+songButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const trackIndex = parseInt(this.getAttribute('data-track'));
+    
+    // Переключаем на выбранную песню
+    currentTrack = trackIndex;
+    audio.src = playlist[currentTrack];
+    
+    // Включаем песню
+    audio.play();
+    vinyl.classList.add('spin');
+    needle.classList.add('playing');
+    isPlaying = true;
+    
+    // Подсвечиваем активную строчку
+    songButtons.forEach(btn => btn.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Подсвечиваем активную песню при автоматическом переключении
+audio.addEventListener('play', function() {
+  songButtons.forEach(btn => btn.classList.remove('active'));
+  songButtons[currentTrack].classList.add('active');
+});
+
 
 audio.src = playlist[currentTrack];
 
